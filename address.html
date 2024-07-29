@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Address</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  input[type="text"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .checkbox-label {
+    margin-bottom: 10px;
+  }
+  .radio-label {
+    margin-right: 15px;
+  }
+  .inline {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .center {
+    text-align: center;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Add Address</h1>
+  <form id="addressForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id="mobile" name="mobile" required>
+
+    <label for="pincode">Pincode:</label>
+    <input type="text" id="pincode" name="pincode" required>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" required>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="town">Locality/Town:</label>
+    <input type="text" id="town" name="town">
+
+    <label for="city">City/District:</label>
+    <input type="text" id="city" name="city" required>
+
+    <label>Type of Address:</label>
+    <div>
+      <input type="radio" id="home" name="address_type" class="radio-label">
+      <label for="home" class="inline">Home</label>
+      <input type="radio" id="office" name="address_type" class="radio-label">
+      <label for="office" class="inline">Office</label>
+    </div>
+
+    <br>
+
+    <label>Is your office open on weekends?</label>
+    <div class="checkbox-label">
+        <input type="checkbox" id="openSaturday" name="openSaturday" class="radio-label">
+        <label for="openSaturday">Open on Saturday</label>
+      </div>
+      <div class="checkbox-label">
+        <input type="checkbox" id="openSunday" name="openSunday" class="radio-label">
+        <label for="openSunday">Open on Sunday</label>
+      </div>
+      <div class="checkbox-label">
+        <input type="checkbox" id="defaultAddress" name="defaultAddress" class="radio-label">
+        <label for="defaultAddress">Make this my default address</label>
+      </div>
+
+    <div class="center">
+        <button type="button" onclick="submitForm()">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script>
+function submitForm() {
+  // Get all input fields within the form
+  var inputs = document.querySelectorAll('#addressForm input');
+  var isValid = true;
+
+  // Check if each input field is filled
+  inputs.forEach(function(input) {
+    if (!input.value.trim()) { // Check if input value is empty or contains only whitespace
+      isValid = false;
+    }
+  });
+
+  // If any required field is empty, show an alert and prevent form submission
+  if (!isValid) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  // If all required fields are filled, submit the form
+  document.getElementById("addressForm").submit();
+  window.location.href = "pay.html";
+}
+</script>
+</body>
+</html>

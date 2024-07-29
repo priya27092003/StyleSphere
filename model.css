@@ -1,0 +1,22 @@
+body{
+    background-image: url('images/model/mod1.avif'); /* Specify the path to your background image */
+    background-size: cover; /* Cover the entire element with the background image */
+    background-position: center; /* Center the background image */
+    height: 990px; 
+}
+.container{
+    display: flex;
+    justify-content: center; /* Align videos horizontally */
+    margin-top: 150px; /* Adjust as needed */
+
+}
+.close-btn {
+    position: absolute;
+    top: 3px;
+    right: 30px;
+    padding: 10px 5px;
+    font-size:40px;
+    font-weight:900;
+    cursor: pointer;
+    color:white;
+}

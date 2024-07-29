@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Primary Meta Tags -->
+    <title>STYLE SPHERE PAY</title>
+    <link rel="stylesheet" href="spay.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script> <!-- confetti-js library -->
+</head>
+
+<body>
+    <center>
+        <div class="card">
+            <div class="card-content">
+                <a href="pay.html?new"><img src="images/logo.jpg" height="100" width="100"></a>
+                <br>
+                <h4 style="color: black;">Create UPI Payment Request Link </h4>
+                <img src="images/img/upi.png" height="250" width="450">
+                <br>
+                <div id="linkpediv" style="display:none;">
+                    <div id="qrcode"></div>
+                    <br><br>
+                    <a onclick='copyUpiUrl()' class='btn' id='btn-copy'>Copy Link</a>
+                    <a id='whatsapp' class="btn">Share Link</a>
+                    <p id="countdown" style="color: black;"></p> <!-- Countdown Timer -->
+                    <button id="doneBtn" style="display: none;" onclick="completePayment()" class="btn">Done</button> <!-- Done Button -->
+                </div>
+                <form id="linkpeform" onsubmit="submitForm(event)">
+                    <label style="color: black;">Enter Name:</label><br>
+                    <input type="text" name="pn" class="text-box" placeholder="Enter your name (Optional):"><br>
+                    <label style="color: black;">Enter Upi Id:</label><br>
+                    <input type="text" name="pa" class="text-box" placeholder="Enter UPI Id" required><br>
+                    <label style="color: black;">Enter Amount (Optional):</label><br>
+                    <input type="number" name="am" class="text-box" placeholder="INR"><br>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <br>
+                <p style="color: #555">
+                    <b>Developed BY : </b>
+                    <a href="#" style="color: #999;">STYLE SPHERE PAY</a>
+                </p>
+            </div>
+        </div>
+    </center>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            const pn = document.getElementById('linkpeform').pn.value;
+            const pa = document.getElementById('linkpeform').pa.value;
+            const am = document.getElementById('linkpeform').am.value;
+
+            // check prod or dev
+            var linkpeURL = window.location.hostname;
+            if (linkpeURL.includes("localhost")) {
+                console.log("dev");
+                linkpeURL = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/index.html`;
+            } else {
+                linkpeURL = `${window.location.protocol}//${window.location.hostname}/pay.html`;
+            }
+
+            linkpeURL += `?pa=${pa}&pn=${pn}&cu=INR`;
+            if (!isNaN(am) && am !== null && am !== "") {
+                linkpeURL += `&am=${am}`;
+            }
+
+            // Generate QR code
+            var qr = new QRCode(document.getElementById("qrcode"), {
+                text: linkpeURL,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            document.getElementById("whatsapp").href = "https://wa.me/?text=Hi%2C%20You%20can%20pay%20me%20by%20this%20Upi%20Payment%20Link%0A%20" + encodeURIComponent(linkpeURL);
+            document.getElementById("linkpediv").style.display = "block";
+            document.getElementById("linkpeform").style.display = "none";
+
+            // Countdown Timer
+            var countdown = 5; // 3 minutes in seconds
+            var timer = setInterval(function () {
+                var minutes = Math.floor(countdown / 60);
+                var seconds = countdown % 60;
+                document.getElementById("countdown").innerHTML = "Expires in: " + minutes + "m " + seconds + "s";
+                countdown--;
+
+                if (countdown < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "PAYMENT DONE!!";
+                    document.getElementById("doneBtn").style.display = "block"; // Show the "Done" button
+                }
+            }, 1000);
+        }
+
+        function copyUpiUrl() {
+            var copylinkpe = document.getElementById("linkpeURL");
+            copylinkpe.select();
+            copylinkpe.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+            document.getElementById("btn-copy").innerHTML = "Copied";
+        }
+
+        function completePayment() {
+            alert("Order has been placed!"); // Display the "Payment Done!" alert
+
+            // Trigger confetti effect
+            var confettiSettings = {
+                particleCount: 500,
+                spread: 360,
+                origin: {
+                    y: 0.6
+                }
+            };
+            confetti(confettiSettings);
+        }
+    </script>
+</body>
+
+</html>

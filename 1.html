@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Hover Change</title>
+<style>
+    /* Define the size for the images */
+    img {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Initially, display the first image -->
+<img id="myImage" src="images/book1/IMG-20240305-WA0002.jpg" onmouseover="changeImage()" onmouseout="restoreImage()" />
+
+<script>
+    // JavaScript function to change the image when hovering
+    function changeImage() {
+        document.getElementById("myImage").src = "images/model/m1.jpg";
+    }
+
+    // JavaScript function to restore the original image when mouse is out
+    function restoreImage() {
+        document.getElementById("myImage").src = "images/book1/IMG-20240305-WA0002.jpg";
+    }
+</script>
+
+</body>
+</html>

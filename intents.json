@@ -1,0 +1,88 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi",
+          "Hey",
+          "Hey there",
+          "Hi there",
+          "How are you",
+          "Is anyone there?",
+          "Hello",
+          "Good day"
+        ],
+        "responses": [
+          "Hey! welcome to NTPC Limited",
+          "Hello, welcome to NTPC Limited",
+          "Hi there, welcome to NTPC Limited. What can I do for you?",
+          "Hi there, welcome to NTPC Limited. How can I help?"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye", "bye bye"],
+        "responses": [
+          "See you later, thanks for visiting NTPC Limited",
+          "Thanks for visiting NTPC Limited. Have a nice day",
+          "Thanks for visiting NTPC Limited. Goodbye!"
+        ]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!", "okay thanks"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      },
+      {
+        "tag": "items",
+        "patterns": [
+          "Which items do you have?",
+          "items list?",
+          "What kinds of items are there?",
+          "What do you sell?"
+        ],
+        "responses": [
+          "We are NTPC Limited, India's largest power utility. Visit us at https://www.ntpc.co.in/"
+        ]
+      },
+      {
+        "tag": "contact",
+        "patterns": [
+          "Can I talk to someone",
+          "How to contact",
+          "Contact",
+          "can I contact someone",
+          "I have some queries",
+          "i have some doubts"
+        ],
+        "responses": [
+          "We are located at NTPC Bhawan,SCOPE Complex, Institutional Area, Lodhi Road, New Delhi - 110003",
+          "Our EPABX Board NOS.: +91 11 24360100, 24387000, 24387001",
+          "Our Fax NO.: 91 11 24361018", 
+          "Email us at ntpccc[at]ntpc[dot]co[dot]in"
+        ]
+      },
+      {
+        "tag": "covid",
+        "patterns": [
+          "covid initiatives",
+          "covid - 19",
+          "what are your covid - 19 intiatives?"
+        ],
+        "responses": [
+          "To check our Covid - 19 Initiatives, checkout the link https://www.ntpc.co.in/en/medi/covid-19-initiatives"
+        ]
+      },
+      {
+        "tag": "funny",
+        "patterns": [
+          "tell me a joke",
+          "tell me something funny",
+          "make me laugh"
+        ],
+        "responses": [
+          "Why don't scientists trust atoms? Because they make up everything."
+        ]
+      }
+    ]
+  }

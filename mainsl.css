@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+
+::-webkit-scrollbar-track {
+  background: #1D1D1D; 
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.content{
+    height: auto;
+    min-height: 50vh;
+    width: 100%;
+    height:700px;
+    margin: 0px;
+    padding:20px 30px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.imgSlider{
+    height:600px;
+    margin: 0 auto;
+    position: relative;
+}
+.mySlider{
+    display: none;
+    margin-top: 60px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.slider-img{
+    width:100%;
+    height:600px;
+    border-radius: 18px;
+    transform: scale(1.1, 1.1);
+    animation-name: zoomin;
+    animation-duration: 3s;
+}
+
+@keyframes zoomin{
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.1, 1.1);}
+}
+
+.prev,
+.next{
+    position: absolute;
+    top: 50%;
+    text-decoration: none;
+    font-size: 60px;
+    color : #fff;
+    cursor: pointer;
+    transition : 0.1s;
+    user-select: none;
+
+}
+.prev:hover, .next:hover{
+    color: #3498db;
+}
+
+.next{
+    right: 40px;
+}
+
+.prev{
+    left: 40px;
+}
+
+.dotbox{
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin: auto;
+}
+
+.dot{
+    display: inline-block;
+    text-align: center;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    border: 3px solid #fff;
+    margin: 0 10px;
+    cursor: pointer;
+
+}
+
+.active, .dot:hover{
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.fade{
+
+    animation-name: fade;
+    animation-duration: 1.5s;;
+}
+
+@keyframes fade{
+    from {opacity: 0.8}
+    to {opacity: 1}
+}

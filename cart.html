@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="shortcut icon" type="image/png" href="../Common Files/image/favicon.png">
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script> <!-- confetti-js library -->
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="upperbar">
+        <div>
+         <img src="images/logo.jpg" alt="brandLogo" id="landingPage">
+        </div>
+        <div>
+           <p> <span id="first">BAG </span>--------- <span id="second">ADDRESS</span>   --------- <span>PAYMENT</span></p>
+        </div>
+        <div>
+         <img src="https://constant.myntassets.com/checkout/assets/img/sprite-secure.png" alt="">
+        <span>100% SECURE</span>
+        </div>
+    </div>
+
+    <div id="timerbox">
+        <p>Sale Starts in <span> 3 </span> Days</p>
+    </div>
+<div class="con_ord">
+    <div class="container">
+        <video autoplay muted loop>
+            <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHc1ZjJ6MnNsb2x0aDNiamJxa281cGl2OHZxcHp2b21menp2dTYwNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vlYZYUxO3Pt92WEeGw/giphy.gif">
+</video>
+    </div>
+
+    <div class="orderbox">
+      <div class="pricedets">PRICE DETAILS</div>
+      <div class="total">
+         <span>Total MRP</span><span class="totalprice">--</span> 
+      </div>
+      <div class="discount">
+        <span>Discount on MRP</span><span class="filldiscount">--</span> 
+     </div>
+
+     <div class="amount">
+        <span>Total Amount</span><span class="amount_pay">--</span> 
+     </div>
+     <p>Enter Promo Code </p>
+     <div class="promocode">
+      <input type="text" id="promo" placeholder="STYLESPHERE300">
+      <div class="apply" onclick="applyPromo()">Apply</div> <!-- Added onclick event -->
+  </div> 
+
+      
+      
+    
+       <br>
+       <div class="cc">
+       <a href="address.html" target="_blank" class="makeorder">PLACE ORDER</a>
+       </div>
+       </div>
+
+    </div>
+</div>
+    
+
+    <div class="wishlistlink">
+        <i class="fa-duotone fa-cart-flatbed"></i>
+    <p>Add More From Wishlist</p>
+    </div>
+    <div class="img-link-container">
+      <div class="model1">
+          <img id="ca1" src="images/cart/jk1.jpg" onmouseover="changeImage('ca1', 'images/cart/jk2.jpg')" onmouseout="restoreImage('ca1', 'images/cart/jk1.jpg')">
+          <h3>Mens Winter Leathers Jackets</h3>
+          <span>$20</span>
+        </div>
+        <div class="model1">
+          <img id="ca2" src="images/cart/py1.jpg" onmouseover="changeImage('ca2', 'images/cart/py2.jpg')" onmouseout="restoreImage('ca2', 'images/cart/py1.jpg')">
+          <h3>Womens Party Wear Shoes</h3>
+          <span>$25</span>
+        </div>
+        <div class="model1">
+          <img id="ca3" src="images/cart/sh1.jpg" onmouseover="changeImage('ca3', 'images/cart/sh2.jpg')" onmouseout="restoreImage('ca3', 'images/cart/sh1.jpg')">
+          <h3>Black Floral Wrap Midi Skirt</h3>
+          <span>$30</span>
+        </div>
+        <div class="model1">
+          <img id="ca4" src="images/cart/ss1.jpg" onmouseover="changeImage('ca4', 'images/cart/ss2.jpg')" onmouseout="restoreImage('ca4', 'images/cart/ss1.jpg')">
+          <h3>Pure Garment Dyed Cotton Shirt</h3>
+          <span>$35</span>
+        </div>
+        <div class="model1">
+          <img id="ca5" src="images/cart/wa1.jpg" onmouseover="changeImage('ca5', 'images/cart/wa2.jpg')" onmouseout="restoreImage('ca5', 'images/cart/wa1.jpg')">
+          <h3>Smart watche Vital Plus</h3>
+          <span>$40</span>
+        </div>
+    </div>
+</div>
+
+<script>
+  // JavaScript function to change the image when hovering
+  function changeImage(id, src) {
+    document.getElementById(id).src = src;
+  }
+
+  // JavaScript function to restore the original image when mouse is out
+  function restoreImage(id, src) {
+    document.getElementById(id).src = src;
+  }
+
+  function applyPromo() {
+            triggerConfetti();
+        }
+
+        // JavaScript function to trigger confetti effect
+        function triggerConfetti() {
+            
+            // Example:
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            // This will create a confetti effect
+        }
+</script>
+</body>
+</html>
